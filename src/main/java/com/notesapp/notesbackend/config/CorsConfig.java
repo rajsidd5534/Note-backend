@@ -15,7 +15,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://localhost:5173" , "https://note-frontent.vercel.app")); // your frontend
+        config.setAllowedOrigins(List.of("https://note-frontent.vercel.app")); // your frontend
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 

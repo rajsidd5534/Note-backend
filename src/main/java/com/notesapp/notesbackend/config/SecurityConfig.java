@@ -44,7 +44,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://localhost:5173" , "https://note-frontent.vercel.app")); // ✅ frontend
+        config.setAllowedOrigins(List.of("https://note-frontent.vercel.app")); // ✅ frontend
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         config.setExposedHeaders(List.of("Authorization")); // ✅ allow frontend to read JWT if needed
