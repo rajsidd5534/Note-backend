@@ -113,13 +113,14 @@ public class NoteController {
             throw new RuntimeException("Unauthorized to share this note");
         }
 
-        // If note already has a shareId, reuse it, otherwise generate a new one
+        // Generate shareId if missing
         if (note.getShareId() == null || note.getShareId().isEmpty()) {
             String shareId = java.util.UUID.randomUUID().toString();
             note.setShareId(shareId);
             noteRepo.save(note);
         }
 
-        return Map.of("shareUrl", "https://note-frontent.vercel.app/" + note.getShareId());
+        String shareUrl = "https://note-frontend.vercel.app/share/" + note.getShareId();
+        return Map.of("shareUrl", shareUrl, "shareId", note.getShareId());
     }
 }
