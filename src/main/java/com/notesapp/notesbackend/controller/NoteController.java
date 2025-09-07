@@ -96,7 +96,7 @@ public class NoteController {
         return Map.of("message", "Deleted");
     }
 
-    @GetMapping("/share/{shareId}")
+    @GetMapping("/shared/{shareId}")
     public Note getShared(@PathVariable String shareId) {
         return noteRepo.findByShareId(shareId)
                 .orElseThrow(() -> new RuntimeException("Shared note not found"));
@@ -120,7 +120,7 @@ public class NoteController {
             noteRepo.save(note);
         }
 
-        String shareUrl = "https://note-frontend.vercel.app/share/" + note.getShareId();
+        String shareUrl = "https://note-frontend.vercel.app/shared/" + note.getShareId();
         return Map.of("shareUrl", shareUrl, "shareId", note.getShareId());
     }
 }
