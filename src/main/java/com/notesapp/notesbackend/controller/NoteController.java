@@ -120,6 +120,6 @@ public class NoteController {
             noteRepo.save(note);
         }
 
-        return Map.of("shareUrl", "http://localhost:8080/api/notes/share/" + note.getShareId());
+        return Map.of("shareUrl", "https://note-frontent.vercel.app" + note.getShareId());
     }
 }
